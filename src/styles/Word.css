@@ -1,0 +1,15 @@
+
+.word {
+    margin: 4px;
+    
+}
+.wordExpandable {
+    margin: 4px;
+    background-color: #84b2ff;
+    box-shadow: 0 0 10px 5px #84b2ff;
+}
+
+.wordExpandable:hover {
+    box-shadow: 0 0 30px 10px #84b2ff;
+    color: white;
+}

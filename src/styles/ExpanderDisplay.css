@@ -1,0 +1,16 @@
+
+
+
+.expanderDisplayContainer {
+    margin-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.expanderDisplay {
+    background-color: #e2edff;
+    box-shadow: 0 0 50px 30px #e2edff;
+    border-radius: 20px;
+    font-size: 30px;
+    max-width: 80%;
+}
