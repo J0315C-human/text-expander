@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import '../styles/App.css';
 import ExpanderEntry from './ExpanderEntry.js';
 import ExpanderDisplay from './ExpanderDisplay.js';
+import Sentence from './Sentence.js';
 import store from '../store';
-
+import actionTypes from '../store/actions.js';
 class App extends Component {
 
   componentWillMount() {
@@ -12,25 +13,27 @@ class App extends Component {
   }
 
   onClickSubmit() {
-    console.log('create clicked');
     store.dispatch({
-      type: 'CREATE_EXPANDER',
+      type: actionTypes.CREATE_EXPANDER,
     });
   }
 
   onEntryChange(sentence) {
-    console.log('dispatching sentence change', sentence);
     store.dispatch({
-      type: 'SENTENCE_CHANGE',
+      type: actionTypes.SENTENCE_CHANGE,
       payload: sentence,
+    });
+  }
+
+  onWordClick(wordIdx) {
+    store.dispatch({
+      type: actionTypes.EXPAND_WORD,
+      payload: wordIdx,
     });
   }
 
   render() {
     const props = this.props;
-    console.log('PROPS IN APP', props);
-    console.log(' ---App rendering ---');
-    console.log(this.props);
     return (
       <div className="App">
         <div className="title">Text-expander thing!</div>
@@ -40,14 +43,19 @@ class App extends Component {
           onClick={props.inputValid ? this.onClickSubmit : null}
           onEntryChange={(val) => this.onEntryChange(val)}
           />
-        <ExpanderDisplay />
+        <ExpanderDisplay>
+          <Sentence
+            words={props.expanderWords}
+            visibleIndexes={props.visibleWordIndexes}
+            clickableIndexes={props.clickableWordIndexes}
+            onWordClick={this.onWordClick}/>
+        </ExpanderDisplay>
       </div>
     );
   }
 }
 
 const render = () => {
-  console.log(store.getState());
   ReactDOM.render(
 		<App
 			{... store.getState()}

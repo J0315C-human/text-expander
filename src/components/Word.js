@@ -1,9 +1,13 @@
 import React from 'react';
 import '../styles/Word.css';
 
-const Word = (props) => {
+const Word = ({children, index, onClick, type}) => {
   return (
-    <span className="wordExpandable">{props.children}</span>
+    <span
+      className={type}
+      onClick={ ()=> onClick(index)}
+      >{children}
+    </span>
   );
 };
 

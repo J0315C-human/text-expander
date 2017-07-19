@@ -1,5 +1,7 @@
-const actionTypes = [
-  'ACTION_TYPE0',
+const actionSymbols = [
+  'CREATE_EXPANDER',
+  'SENTENCE_CHANGE',
+  'EXPAND_WORD',
 ];
 
 const mapToConst = (types) => types.reduce((mem, name) => {
@@ -7,4 +9,6 @@ const mapToConst = (types) => types.reduce((mem, name) => {
   return mem;
 }, {});
 
-export default mapToConst(actionTypes);
+const actionTypes = mapToConst(actionSymbols);
+
+export default actionTypes;
