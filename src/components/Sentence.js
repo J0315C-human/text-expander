@@ -14,22 +14,22 @@ const Sentence = ({words, visibleIndexes, clickableIndexes, onWordClick}) => {
         id += 1;
         if (visibleIndexes.includes(`${id}`)) {
           if (clickableIndexes.includes(`${id}`)) {
-            console.log(`word ${id} is visible and clicakble`);
+            console.log(`word ${id} is visible and clickable`);
 
             return ( // clickable word
-            <Word key={id} type="word wordExpandable" index={id} onClick={(wordIdx) => onWordClick(wordIdx)}>{words[id]}</Word>
+            <Word key={id} type="word wordExpandable" index={id} onClick={(wordIdx) => onWordClick(wordIdx)}>{words[id].replace(/_/g, ' ')}</Word>
             );
           }
           console.log(`word ${id} is visible`);
 
           return ( // visible word
-          <Word key={id} type="word" index={id} onClick={() => null}>{words[id]}</Word>
+          <Word key={id} type="word" index={id} onClick={() => null}>{words[id].replace(/_/g, ' ')}</Word>
           );
         }
         console.log(`word ${id} is invisible`);
 
         return ( // invisible word (collapses)
-        <Word key={id} type="wordInvisible" index={id} onClick={() => null}>{words[id]}</Word>
+        <Word key={id} type="wordInvisible" index={id} onClick={() => null}>{words[id].replace(/_/g, ' ')}</Word>
         );
       })
       }

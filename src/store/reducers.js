@@ -12,9 +12,6 @@ const defaultState = {
   visibleWordIndexes: [],
 };
 
-// console.log(getExpandedWords(collapseByPath([], tree0), words))
-
-
 const expander = (state = defaultState, action) => {
   // console.log(action);
   // console.log(state);

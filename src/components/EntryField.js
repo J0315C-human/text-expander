@@ -6,7 +6,7 @@ const EntryField = ({onChange}) => {
   return (
     <input className="expanderEntryInput" ref={node => {input = node;}}
     type="text" onChange={() => {onChange(input.value);}}
-    value="These words {will be replaced {replaced {replaced {changed {switched up}} or added to} when clicked. {clicked by the user. {user, with a mouse.}}}}" />
+    placeholder="These words {will be replaced {replaced {replaced {changed {switched up}} or added to} when clicked. {clicked by the user. {user, with a mouse.}}}}" />
   );
 };
 

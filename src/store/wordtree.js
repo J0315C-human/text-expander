@@ -33,7 +33,11 @@ const sanitizeWords = (words) => {
     .replace(/{ /g, '{')
     .replace(/ }/g, '}')
     .replace(/{{/g, '{... {')
-    .replace(/{(\S*)}/g, '$1')
+    .replace(/}\s*{/g, '} ... {')
+    .replace(/^\s*{/g, '... {')
+    // .replace(/{(\S*)}/g, '$1')
+    .replace(/{(\S+)}/g, '{$1 _}')
+    .replace(/{\s*}/g, '{}')
     .trim().split(/\s+/);
 };
 
@@ -58,6 +62,7 @@ const createTreeStructure = (sentence) => {
       stack[stack.length - 1][i] = null;
     }
   }
+  console.log(root);
   return root;
 };
 

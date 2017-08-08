@@ -46,17 +46,16 @@
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes wordExpand {
     0%   {opacity:0;max-width: 0;}
-    20%  {opacity:1;}    
-    100% {max-width: 1000px;}
+    20%  {opacity:1;max-width: 500px;}    
+    100% {} 
 }
 
 /* Standard syntax */
 @keyframes wordExpand {
     0%   {opacity:0;max-width: 0;}
-    20%  {opacity:1;}
-    100% {max-width: 1000px;}
+    20%  {opacity:1;max-width: 500px;}
+    100% {}
 }
-
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes wordCollapse {
