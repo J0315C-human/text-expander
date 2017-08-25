@@ -1,6 +1,7 @@
 .expanderEntryInput{
-    width: 80%;
+    width: 90%;
     border: 1px solid darkcyan;
-    height: 24px;
+    
+    height: 15vh;
     font-size: 20px;
 }

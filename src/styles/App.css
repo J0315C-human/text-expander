@@ -6,3 +6,14 @@
     margin: 20px;
 
 }
+
+.exampleButtons {
+    margin: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.exampleButtons .appButton {
+    margin: 10px;
+}

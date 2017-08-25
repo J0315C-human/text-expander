@@ -1,13 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import '../styles/EntryField.css';
 
-const EntryField = ({onChange}) => {
+const EntryField = ({ onChange }) => {
   let input;
   return (
-    <input className="expanderEntryInput" ref={node => {input = node;}}
-    type="text" onChange={() => {onChange(input.value);}}
-    placeholder="These words {will be replaced {replaced {replaced {changed {switched up}} or added to} when clicked. {clicked by the user. {user, with a mouse.}}}}" />
+    <textarea className="expanderEntryInput" ref={node => { input = node; }}
+      rows={4} onChange={() => { onChange(input.value); }}
+    />
   );
 };
+
+EntryField.propTypes = {
+  onChange: PropTypes.func,
+}
 
 export default EntryField;

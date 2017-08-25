@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const style = {
   color: 'red',
@@ -15,4 +16,7 @@ const Warnings = ({text}) => {
   );
 };
 
+Warnings.propTypes = {
+  text: PropTypes.string,
+}
 export default Warnings;

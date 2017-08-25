@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Word from './Word.js';
 import '../styles/Sentence.css';
 
@@ -7,29 +8,23 @@ import '../styles/Sentence.css';
 const Sentence = ({words, visibleIndexes, clickableIndexes, onWordClick}) => {
   let id = -1;
   console.log('visible Indexes', visibleIndexes);
-  console.log('clicakble Indexes', clickableIndexes);
+  console.log('clickable Indexes', clickableIndexes);
   return (
     <div className="sentence">
       {words.map(word => {
         id += 1;
         if (visibleIndexes.includes(`${id}`)) {
           if (clickableIndexes.includes(`${id}`)) {
-            console.log(`word ${id} is visible and clickable`);
-
             return ( // clickable word
-            <Word key={id} type="word wordExpandable" index={id} onClick={(wordIdx) => onWordClick(wordIdx)}>{words[id].replace(/_/g, ' ')}</Word>
+            <Word key={id} type="word wordExpandable" index={id} onClick={(wordIdx) => onWordClick(wordIdx)}>{word.replace(/_/g, ' ')}</Word>
             );
           }
-          console.log(`word ${id} is visible`);
-
           return ( // visible word
-          <Word key={id} type="word" index={id} onClick={() => null}>{words[id].replace(/_/g, ' ')}</Word>
+          <Word key={id} type="word" index={id} onClick={() => null}>{word.replace(/_/g, ' ')}</Word>
           );
         }
-        console.log(`word ${id} is invisible`);
-
         return ( // invisible word (collapses)
-        <Word key={id} type="wordInvisible" index={id} onClick={() => null}>{words[id].replace(/_/g, ' ')}</Word>
+        <Word key={id} type="wordInvisible" index={id} onClick={() => null}>{word.replace(/_/g, ' ')}</Word>
         );
       })
       }
@@ -37,4 +32,10 @@ const Sentence = ({words, visibleIndexes, clickableIndexes, onWordClick}) => {
   );
 };
 
+Sentence.propTypes = {
+  words: PropTypes.array,
+  visibleIndexes: PropTypes.array,
+  clickableIndexes: PropTypes.array,
+  onWordClick: PropTypes.func,
+};
 export default Sentence;
